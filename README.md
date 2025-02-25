@@ -2,9 +2,7 @@ Infrastructure & Application Setup for Car Rental Service
 
 Connected to the instance via Session Manager
 Installed essential dependencies:
-sh
-Copy
-Edit
+
 sudo apt update && sudo apt install -y openjdk-17-jdk unzip
 
 Did the application set up:
@@ -72,4 +70,6 @@ You added metrics instrumentation to your Java-based microservices using Microme
 Added Dependencies (Spring Boot Example)
 You included Micrometer and OpenTelemetry dependencies in  pom.xml
 
-created a  OpenTelemetry Collector Configuration at
+created a  OpenTelemetry Collector Configuration at otel-config.yaml
+
+updated application.properties file in every microservice to enable actuator end points at application.properties
