@@ -70,4 +70,6 @@ Registered Application Metrics in Java
 You added metrics instrumentation to your Java-based microservices using Micrometer and OpenTelemetry SDK.
 
 Added Dependencies (Spring Boot Example)
-You included Micrometer and OpenTelemetry dependencies in r pom.xml:
+You included Micrometer and OpenTelemetry dependencies in  pom.xml
+
+created a  OpenTelemetry Collector Configuration at
