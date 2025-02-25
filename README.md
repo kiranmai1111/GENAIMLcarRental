@@ -90,4 +90,4 @@ Used CloudWatch Log Insights for structured log queries and analysis.
 Created Dashboards & Alarms
 
 Designed CloudWatch Dashboards to visualize key performance metrics.
-Set up CloudWatch Alarms to trigger notifications based on metric thresholds, ensuring proactive monitorin
+Set up CloudWatch Alarms to trigger notifications based on metric thresholds, ensuring proactive monitoring
