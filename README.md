@@ -73,3 +73,21 @@ You included Micrometer and OpenTelemetry dependencies in  pom.xml
 created a  OpenTelemetry Collector Configuration at otel-config.yaml
 
 updated application.properties file in every microservice to enable actuator end points at application.properties
+
+
+Installed and Configured OpenTelemetry Collector
+
+Set up the OpenTelemetry Collector to collect and forward traces, logs, and metrics.
+Configured exporters to send telemetry data to AWS CloudWatch.
+Exposed Custom Metrics in Java
+
+Integrated Micrometer for metric instrumentation.
+Registered a custom metric (api.requests.count) to track API request counts in the application.
+Integrated Logs and Metrics with CloudWatch
+
+Configured the CloudWatch Agent to collect logs from application containers.
+Used CloudWatch Log Insights for structured log queries and analysis.
+Created Dashboards & Alarms
+
+Designed CloudWatch Dashboards to visualize key performance metrics.
+Set up CloudWatch Alarms to trigger notifications based on metric thresholds, ensuring proactive monitorin
