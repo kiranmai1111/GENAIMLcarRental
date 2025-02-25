@@ -1,0 +1,46 @@
+eceivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+  resource:
+    attributes:
+      - key: service.name
+        value: "GENAIML-METRICS"
+        action: insert
+
+exporters:
+  otlp:
+    endpoint: "http://localhost:4317"  # 🔥 Change this to the actual OTLP endpoint
+    tls:
+      insecure: true
+
+  awscloudwatchlogs:
+    region: ap-south-1
+    log_group_name: "otel-metrics"
+    log_stream_name: "genaimlAPI-GATEWAY-stream"
+  awsxray:
+    region: ap-south-1
+  awsemf:
+    region: ap-south-1
+    namespace: "GENAIML/API-GATEWAY"
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch, resource]
+      exporters: [awsxray]
+    metrics:
+      receivers: [otlp]
+      processors: [batch, resource]
+      exporters: [awsemf]
+    logs:
+      receivers: [otlp]
+      processors: [batch, resource]
+      exporters: [awscloudwatchlogs]
