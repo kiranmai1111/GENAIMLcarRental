@@ -75,7 +75,7 @@ created a  OpenTelemetry Collector Configuration at otel-config.yaml
 updated application.properties file in every microservice to enable actuator end points at application.properties
 
 
-Installed and Configured OpenTelemetry Collector
+#Installed and Configured OpenTelemetry Collector
 
 Set up the OpenTelemetry Collector to collect and forward traces, logs, and metrics.
 Configured exporters to send telemetry data to AWS CloudWatch.
