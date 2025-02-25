@@ -1,0 +1,17 @@
+#updated my original file by adding these dependencies
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+</dependency>
+
+<dependency>
+    <groupId>io.opentelemetry</groupId>
+    <artifactId>opentelemetry-api</artifactId>
+    <version>1.18.0</version>
+</dependency>
+
+<dependency>
+    <groupId>io.opentelemetry</groupId>
+    <artifactId>opentelemetry-sdk-metrics</artifactId>
+    <version>1.18.0</version>
+</dependency>
