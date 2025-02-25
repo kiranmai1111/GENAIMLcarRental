@@ -1,4 +1,4 @@
-Infrastructure & Application Setup for Car Rental Service
+# Infrastructure & Application Setup for Car Rental Service
 
 Connected to the instance via Session Manager
 Installed essential dependencies:
@@ -28,7 +28,7 @@ nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./
 
  Logging & Monitoring (CloudWatch):
 
- Installed and configured the CloudWatch Agent for metrics and logs:
+# Installed and configured the CloudWatch Agent for metrics and logs:
  
 sudo apt install -y amazon-cloudwatch-agent
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
@@ -50,13 +50,13 @@ The OpenTelemetry Collector is responsible for collecting traces, metrics, and l
 # Downloaded OpenTelemetry Collector
 wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/latest/download/otelcol-linux-amd64 -O otelcol
 
-# Made it executable
+#Made it executable
 chmod +x otelcol
 
-# Moved it to a standard location
+#Moved it to a standard location
 sudo mv otelcol /usr/local/bin/
 
-# Verify installation
+# Verified installation
 otelcol --version
 
 Started the open telemtry collector:
@@ -75,7 +75,24 @@ created a  OpenTelemetry Collector Configuration at otel-config.yaml
 updated application.properties file in every microservice to enable actuator end points at application.properties
 
 
-#Installed and Configured OpenTelemetry Collector
+# Installed and Configured OpenTelemetry Java Agent 
+
+Downloaded the OpenTelemetry Java Agent:
+
+curl -L https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar -o opentelemetry-javaagent.jar
+
+Started microservices with OpenTelemetry Agent:
+
+java -javaagent:/path/to/opentelemetry-javaagent.jar -jar your-microservice.jar
+
+Set OpenTelemetry environment variables:
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+export OTEL_SERVICE_NAME=location-service
+export OTEL_METRICS_EXPORTER=otlp
+export OTEL_TRACES_EXPORTER=otlp
+export OTEL_LOGS_EXPORTER=otlp
+
+Configured OpenTelemetry Collector
 
 Set up the OpenTelemetry Collector to collect and forward traces, logs, and metrics.
 Configured exporters to send telemetry data to AWS CloudWatch.
@@ -85,7 +102,6 @@ Integrated Micrometer for metric instrumentation.
 Registered a custom metric (api.requests.count) to track API request counts in the application.
 Integrated Logs and Metrics with CloudWatch
 
-Configured the CloudWatch Agent to collect logs from application containers.
 Used CloudWatch Log Insights for structured log queries and analysis.
 Created Dashboards & Alarms
 
